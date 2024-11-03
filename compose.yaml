@@ -3,6 +3,10 @@ networks:
    profile-network:
        external: true
        name: 'mongo-network'
+
+volumes:
+  profiledata:
+
 services:
   app:
     container_name: profileapp
@@ -27,7 +31,7 @@ services:
     networks:
        - profile-network
     volumes:
-       - ./data:/data/db  
+       - profiledata:/data/db   
 
   mongo-express:
     container_name: express
